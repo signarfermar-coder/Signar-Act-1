@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MapQuest Route Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <p class="eyebrow">MapQuest API Integration</p>
+      <h1>Route planner with tabular request and response details</h1>
+      <p class="hero-copy">
+        Enter a starting point and a destination, then review the MapQuest Directions API
+        request data, route summary, and maneuver-by-maneuver instructions.
+      </p>
+    </header>
+
+    <main class="layout">
+      <section class="panel panel-form">
+        <h2>Trip Details</h2>
+        <form id="route-form">
+          <label for="start">Starting location</label>
+          <input id="start" name="start" type="text" placeholder="Example: NMSC Main Campus, Tangub City" required>
+
+          <label for="destination">Destination</label>
+          <input id="destination" name="destination" type="text" placeholder="Example: Plaza Germania, Ozamiz City" required>
+
+          <button type="submit" id="submit-btn">Get Route</button>
+        </form>
+
+        <div id="status" class="status" aria-live="polite">
+          Ready. Enter two locations to request directions.
+        </div>
+      </section>
+
+      <section class="panel panel-map">
+        <div class="map-heading">
+          <h2>Route Preview</h2>
+          <span id="run-counter">Runs recorded: 0</span>
+        </div>
+        <div class="map-frame">
+          <img
+            id="route-map"
+            alt="Map preview will appear here after requesting directions."
+            src=""
+            hidden
+          >
+          <div id="map-placeholder" class="map-placeholder"></div>
+        </div>
+      </section>
+    </main>
+
+    <section class="tables-grid">
+      <article class="panel">
+        <h2>Request Inputs</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody id="request-table-body">
+              <tr>
+                <td colspan="2">No request submitted yet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>API Response Summary</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Output</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody id="summary-table-body">
+              <tr>
+                <td colspan="2">No response data yet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>Route Maneuvers</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Narrative</th>
+              <th>Distance</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="maneuvers-table-body">
+            <tr>
+              <td colspan="4">Directions steps will appear here.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Execution Log</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Run</th>
+              <th>Start</th>
+              <th>Destination</th>
+              <th>Distance</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="history-table-body">
+            <tr>
+              <td colspan="5">Complete three runs and take a screenshot after each one.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

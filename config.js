@@ -1,0 +1,1 @@
+window.MAPQUEST_API_KEY = "tQRoVFhUbocMX70xu1PGXWzDQRxbF4jF";
